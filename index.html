@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Your Personal Productivity Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">✨</span>
+                    TaskFlow
+                </h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Done</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <h2>Your Progress</h2>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-message" id="progressMessage">
+                    Ready to crush some goals? 🎯
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Task Section -->
+        <section class="add-task-section">
+            <div class="add-task-container">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="What needs to get done today?" 
+                    maxlength="100"
+                >
+                <button id="addTaskBtn" class="add-btn">
+                    <span class="btn-text">Add Task</span>
+                    <span class="btn-icon">+</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section class="tasks-section">
+            <div class="tasks-header">
+                <h2>Your Tasks</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="pending">Pending</button>
+                    <button class="filter-tab" data-filter="completed">Completed</button>
+                </div>
+            </div>
+            
+            <div class="tasks-container" id="tasksContainer">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📝</div>
+                <h3>No tasks yet!</h3>
+                <p>Add your first task above to get started on your productivity journey.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="text" 
+                    id="editTaskInput" 
+                    placeholder="Task description..." 
+                    maxlength="100"
+                >
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelEdit">Cancel</button>
+                <button class="btn-primary" id="saveEdit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
